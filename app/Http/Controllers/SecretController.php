@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\Secrets\Interfaces\SecretInterface;
+use App\Services\Secrets\Interfaces\GetSecretInterface;
+use App\Services\Secrets\Interfaces\StoreSecretInterface;
 use Illuminate\Http\Request;
 
 class SecretController extends Controller
 {
-    public function create(Request $request, SecretInterface $secretService)
+    public function create(Request $request, StoreSecretInterface $secretService)
     {
-        return view('welcome', ['link' => $secretService->create($request->input('secret'))]);
+        return view('welcome', ['link' => $secretService->store($request->input('secret'))]);
     }
 
-    public function read(string $key, SecretInterface $secretService)
+    public function read(string $key, GetSecretInterface $secretService)
     {
-        $data = ($secret = $secretService->read($key)) ? ['secret' => $secret] : ['error' => $secret];
+        $data = ($secret = $secretService->get($key)) ? ['secret' => $secret] : ['error' => $secret];
         return view('secret', $data);
     }
 }

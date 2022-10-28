@@ -13,6 +13,7 @@ else.
 4. Create a database called `one-time-secret` on your local database setup.
 5. From within the project directory, run the following commands to create the relevant config cache, set up the required database table, as well as to serve the application via the Laravel mock server.
 ```bash
+composer install
 php artisan config:clear
 php artisan clear-compiled
 php artisan optimize

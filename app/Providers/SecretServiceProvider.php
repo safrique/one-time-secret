@@ -2,8 +2,12 @@
 
 namespace App\Providers;
 
-use App\Services\Secrets\Interfaces\SecretInterface;
-use App\Services\Secrets\SecretService;
+use App\Services\Secrets\DeleteSecretService;
+use App\Services\Secrets\Interfaces\DeleteSecretInterface;
+use App\Services\Secrets\Interfaces\GetSecretInterface;
+use App\Services\Secrets\GetSecretService;
+use App\Services\Secrets\Interfaces\StoreSecretInterface;
+use App\Services\Secrets\StoreSecretService;
 use Illuminate\Support\ServiceProvider;
 
 class SecretServiceProvider extends ServiceProvider
@@ -25,6 +29,8 @@ class SecretServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->app->bind(SecretInterface::class, SecretService::class);
+        $this->app->bind(DeleteSecretInterface::class, DeleteSecretService::class);
+        $this->app->bind(GetSecretInterface::class, GetSecretService::class);
+        $this->app->bind(StoreSecretInterface::class, StoreSecretService::class);
     }
 }
