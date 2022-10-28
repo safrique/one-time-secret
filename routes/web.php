@@ -16,3 +16,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('', function () { return view('welcome'); });
 Route::get('secret/{key}', [SecretController::class, 'read']);
+Route::get('link', [SecretController::class, 'create']);

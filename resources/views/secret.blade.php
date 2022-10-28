@@ -1,5 +1,5 @@
 @extends('layout')
 @section('content')
-    <h1>Secret page</h1>
-    <h3>Key: {{ $key }}</h3>
+    <h1>Secret</h1>
+    <h3>Key: {{ $secret }}</h3>
 @endsection
