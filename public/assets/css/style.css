@@ -386,3 +386,8 @@ video {
 body {
     font-family: 'Nunito', sans-serif;
 }
+
+.btn {
+    padding: 0.5em;
+    cursor: pointer;
+}

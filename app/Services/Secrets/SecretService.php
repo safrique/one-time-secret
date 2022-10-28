@@ -36,6 +36,6 @@ class SecretService implements SecretInterface
         }
 
         $this->delete($key);
-        return Crypt::decryptString($secret->secret);
+        return Crypt::decrypt($secret->secret);
     }
 }

@@ -12,16 +12,27 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 
+    <script>
+        function copyToClipboard (id) {
+            let copyText = document.getElementById(id)
+            navigator.clipboard.writeText(copyText.textContent)
+            alert(`Copied the text: ` + copyText.textContent)
+        }
+    </script>
 </head>
 <body class="antialiased">
 <div
     class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-    <a href="">Reset</a>
 
     <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
         <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
             <div class="ml-4 text-xlg leading-7 font-semibold">
                 One-Time Secret
+            </div>
+        </div>
+        <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
+            <div class="btn underline ml-4 text-lg leading-7 font-semibold">
+                <a href="/">Reset Page</a>
             </div>
         </div>
 

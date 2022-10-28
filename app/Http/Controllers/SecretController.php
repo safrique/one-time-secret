@@ -14,10 +14,7 @@ class SecretController extends Controller
 
     public function read(string $key, SecretInterface $secretService)
     {
-        if (!($secret = $secretService->read($key))) {
-            return view('secret', ['error' => $secret]);
-        }
-
-        return view('secret', ['secret' => $secret]);
+        $data = ($secret = $secretService->read($key)) ? ['secret' => $secret] : ['error' => $secret];
+        return view('secret', $data);
     }
 }

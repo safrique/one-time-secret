@@ -16,7 +16,7 @@
             <div class="ml-12">
                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                     To transfer information via a secure one-time link, paste your text into the box and click "Generate
-                    Link". Pass this link on to the person you want to share your information with. Once they click the
+                    Link". Pass this link onto the person you want to share your information with. Once they click the
                     link, the information will be displayed to them, but will at the same time be deleted from our
                     records, so nobody can ever access that information via our system again.
                 </div>
@@ -38,9 +38,9 @@
             <div class="ml-12">
                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
                     <form action="" method="post">
-                            <textarea id="secret" name="secret" rows="6" cols="50">Type/Paste your information here
-                            </textarea>
-                        <button type="submit" value="Delete" class="btn btn-primary">Generate Link</button>
+                        <textarea id="secret" name="secret" rows="6"
+                                  cols="50">Type/Paste your information here</textarea>
+                        <button type="submit" value="Delete" class="btn">Generate Link</button>
                         <input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
                     </form>
                 </div>
@@ -63,9 +63,12 @@
 
             <div class="ml-12">
                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    Pass this link on to the person you want to share the information with. It is a
-                    one-time link that will self-destruct once used.
-                    <a href="{{ $link }}">{{ $link }}</a>
+                    Pass this link onto the person you want to share the information with. It is a one-time link that
+                    will self-destruct once used.
+                </div>
+                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
+                    <span id="copy_link">{{ $link }}</span>
+                    <button value="copy" onclick="copyToClipboard('copy_link')" class="btn">Copy Link</button>
                 </div>
             </div>
         </div>
