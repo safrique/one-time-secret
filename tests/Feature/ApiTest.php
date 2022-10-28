@@ -2,17 +2,16 @@
 
 namespace Tests\Feature;
 
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
-class ExampleTest extends TestCase
+class ApiTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Tests the welcome page API
      *
      * @return void
      */
-    public function test_example()
+    public function test_welcome_page_url()
     {
         $response = $this->get('/');
 

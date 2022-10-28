@@ -41,7 +41,7 @@
         @else
             <div class="ml-12">
                 <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                    The link you used is no longer operational.
+                    The link you used is not operational.
                 </div>
             </div>
         @endif

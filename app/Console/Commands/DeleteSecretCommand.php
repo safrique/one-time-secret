@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use App\Models\Secret;
 use Carbon\Carbon;
+use Exception;
 use Illuminate\Console\Command;
 
 class DeleteSecretCommand extends Command
@@ -40,11 +41,16 @@ class DeleteSecretCommand extends Command
     public function handle()
     : int
     {
-        if (($secrets = Secret::where('delete_at', '<', Carbon::now()))->exists()) {
-            foreach ($secrets->get() as $secret) {
-                $secret->delete();
+        try {
+            if (($secrets = Secret::where('delete_at', '<', Carbon::now()))->exists()) {
+                foreach ($secrets->get() as $secret) {
+                    $secret->delete();
+                }
             }
+            return 0;
+        } catch (Exception $e) {
+            echo $e->getMessage() . "\n";
+            return 1;
         }
-        return 0;
     }
 }
